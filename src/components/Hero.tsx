@@ -1,8 +1,7 @@
 import React from 'react';
-import { Dumbbell, Target, Flame, Sparkles, ChevronRight, Zap } from 'lucide-react';
+import { Dumbbell, Target, Flame, Sparkles, ChevronRight, Zap, ShoppingBag, Utensils } from 'lucide-react';
 import { FitnessGoal } from '../types';
 
-import proteinBowlImg from '../assets/images/gym_protein_bowl_1784952346493.jpg';
 import gymLogo from '../assets/images/gymnutrition_logo_1784952810347.jpg';
 import gymHeroCover from '../assets/images/gym_hero_cover_1784952937983.jpg';
 import gymnutritionWebBanner from '../assets/images/gymnutrition_web_banner_1784953112353.jpg';
@@ -12,13 +11,15 @@ interface HeroProps {
   onSelectGoal: (goal: FitnessGoal) => void;
   onOpenAI: () => void;
   onOpenCalculator: () => void;
+  onViewProducts: () => void;
 }
 
 export const Hero: React.FC<HeroProps> = ({
   selectedGoal,
   onSelectGoal,
   onOpenAI,
-  onOpenCalculator
+  onOpenCalculator,
+  onViewProducts,
 }) => {
   const goals: { id: FitnessGoal; title: string; subtitle: string; icon: React.ReactNode; color: string }[] = [
     {
@@ -64,46 +65,54 @@ export const Hero: React.FC<HeroProps> = ({
           <div className="lg:col-span-7 space-y-6">
             
             {/* Pill Tag */}
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-semibold tracking-wide">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Nutrición Científica para el Gimnasio</span>
+            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-bold tracking-wide">
+              <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
+              <span>Nutrición Deportiva & Gym Gourmet</span>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
-              Alimenta tus entrenamientos según tus{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400">
-                objetivos físicos
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight">
+              Alimenta tu cuerpo,{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-amber-400">
+                alcanza tus metas.
               </span>
             </h1>
 
             <p className="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl font-normal">
-              GymNutrition te ayuda a elegir el menú exacto para hipertrofia, quemar grasa, potencia y recuperación muscular. Descubre platillos saludables con desglose de macros, recomendaciones de pre y post entreno y asesoría personalizada con IA.
+              GymNutrition te ayuda a elegir y comprar el menú saludable perfecto según tu objetivo físico: ganar masa muscular, reducir grasa corporal, aumentar fuerza o acelerar tu recuperación muscular. Platillos fitness gourmet listos para consumir.
             </p>
 
             {/* Quick Action Buttons */}
             <div className="flex flex-wrap gap-3 pt-2">
               <button
-                onClick={onOpenAI}
-                className="flex items-center space-x-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-bold text-sm shadow-xl shadow-emerald-500/20 hover:shadow-emerald-500/30 transform hover:-translate-y-0.5 transition-all"
+                onClick={onViewProducts}
+                className="flex items-center space-x-2 px-6 py-4 rounded-2xl bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-400 hover:from-emerald-400 hover:to-teal-300 text-slate-950 font-black text-sm shadow-xl shadow-emerald-500/20 hover:shadow-emerald-500/30 transform hover:-translate-y-0.5 transition-all"
               >
-                <Sparkles className="w-4 h-4 fill-slate-950" />
-                <span>Asistente IA GymNutrition</span>
+                <Utensils className="w-5 h-5 text-slate-950" />
+                <span>Ver Productos</span>
                 <ChevronRight className="w-4 h-4" />
               </button>
 
               <button
                 onClick={onOpenCalculator}
-                className="flex items-center space-x-2 px-5 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-100 font-semibold text-sm border border-slate-700 transition-all"
+                className="flex items-center space-x-2 px-5 py-4 rounded-2xl bg-slate-800 hover:bg-slate-700 text-slate-100 font-bold text-sm border border-slate-700 transition-all"
               >
                 <Dumbbell className="w-4 h-4 text-emerald-400" />
-                <span>Calcular Mis Macros</span>
+                <span>Calculadora de Macros</span>
+              </button>
+
+              <button
+                onClick={onOpenAI}
+                className="flex items-center space-x-2 px-5 py-4 rounded-2xl bg-slate-900 hover:bg-slate-800 text-emerald-300 font-bold text-sm border border-emerald-500/30 transition-all"
+              >
+                <Sparkles className="w-4 h-4 text-amber-400" />
+                <span>Asistente NutriAI</span>
               </button>
             </div>
 
             {/* Goal Selector Matrix */}
             <div className="pt-6">
-              <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">
-                Selecciona tu objetivo físico actual:
+              <p className="text-xs font-extrabold text-slate-400 uppercase tracking-wider mb-3">
+                Selecciona tu objetivo deportivo para ver productos recomendados:
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -112,7 +121,10 @@ export const Hero: React.FC<HeroProps> = ({
                   return (
                     <button
                       key={item.id}
-                      onClick={() => onSelectGoal(item.id)}
+                      onClick={() => {
+                        onSelectGoal(item.id);
+                        onViewProducts();
+                      }}
                       className={`flex items-start space-x-3.5 p-3.5 rounded-2xl border text-left transition-all duration-200 ${
                         isSelected
                           ? `bg-slate-800/90 border-emerald-400 ring-2 ring-emerald-400/30 shadow-lg shadow-emerald-500/10`
@@ -152,7 +164,7 @@ export const Hero: React.FC<HeroProps> = ({
                 <div className="relative h-72 sm:h-88 rounded-2xl overflow-hidden">
                   <img
                     src={gymHeroCover}
-                    alt="Nutrición deportiva y gimnasio moderno - Pollo, Arroz, Brócoli, Aguacate, Huevos, Avena y Batido de Proteínas"
+                    alt="Gimnasio moderno con personas disfrutando comidas saludables GymNutrition"
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
@@ -161,7 +173,7 @@ export const Hero: React.FC<HeroProps> = ({
                   {/* Top Badge */}
                   <div className="absolute top-3 left-3 bg-slate-950/85 backdrop-blur-md border border-slate-700/80 px-3 py-1.5 rounded-full text-xs font-bold text-emerald-400 flex items-center space-x-1.5 shadow-lg">
                     <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
-                    <span>Experiencia Fitness & Nutrición 4K</span>
+                    <span>Fotografía Gastronómica 4K</span>
                   </div>
 
                   {/* Bottom Bar Info */}
@@ -169,11 +181,11 @@ export const Hero: React.FC<HeroProps> = ({
                     <div className="flex items-center justify-between mb-1.5">
                       <span className="text-xs font-bold text-slate-100 flex items-center gap-1.5">
                         <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
-                        Alimentación & Entrenamiento de Alto Rendimiento
+                        Pollo, Arroz Integral, Brócoli, Aguacate, Avena & Batido
                       </span>
                     </div>
                     <p className="text-[11px] text-slate-300 leading-tight">
-                      Pollo a la parrilla, arroz integral, brócoli, aguacate, huevos, avena y batido proteico en gimnasio moderno.
+                      Nutrición lista para consumir pensada para el rendimiento deportivo.
                     </p>
 
                     <div className="grid grid-cols-3 gap-2 text-center text-xs pt-2 mt-2 border-t border-slate-800">
@@ -182,11 +194,11 @@ export const Hero: React.FC<HeroProps> = ({
                         <span className="font-bold text-emerald-400">65g</span>
                       </div>
                       <div className="bg-slate-950/70 p-1.5 rounded-lg border border-slate-800">
-                        <span className="block text-[9px] text-slate-400 uppercase font-semibold">Carbohidratos</span>
+                        <span className="block text-[9px] text-slate-400 uppercase font-semibold">Carbs</span>
                         <span className="font-bold text-teal-300">70g</span>
                       </div>
                       <div className="bg-slate-950/70 p-1.5 rounded-lg border border-slate-800">
-                        <span className="block text-[9px] text-slate-400 uppercase font-semibold">Grasas Saludables</span>
+                        <span className="block text-[9px] text-slate-400 uppercase font-semibold">Grasas</span>
                         <span className="font-bold text-amber-300">18g</span>
                       </div>
                     </div>
@@ -201,8 +213,8 @@ export const Hero: React.FC<HeroProps> = ({
                   <img src={gymLogo} alt="Logo" className="w-full h-full object-cover rounded-lg" referrerPolicy="no-referrer" />
                 </div>
                 <div>
-                  <p className="font-bold text-white">Logo Oficial GymNutrition</p>
-                  <p className="text-slate-400 text-[11px]">Diseño minimalista fitness & nutrición</p>
+                  <p className="font-bold text-white">GymNutrition</p>
+                  <p className="text-slate-400 text-[11px]">Nutrición Deportiva Certificada</p>
                 </div>
               </div>
 
@@ -217,7 +229,7 @@ export const Hero: React.FC<HeroProps> = ({
             <div className="aspect-[16/9] md:aspect-[21/9] w-full relative overflow-hidden bg-slate-900">
               <img
                 src={gymnutritionWebBanner}
-                alt="Banner Oficial GymNutrition 4K - Atleta con plato saludable y batido de proteína en gimnasio moderno"
+                alt="Banner Panorámico GymNutrition 4K - Atleta con plato saludable"
                 referrerPolicy="no-referrer"
                 className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
               />
@@ -241,10 +253,10 @@ export const Hero: React.FC<HeroProps> = ({
 
                 <div className="flex items-center space-x-4 pt-2">
                   <button
-                    onClick={onOpenCalculator}
-                    className="px-4 py-2.5 sm:px-5 sm:py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs sm:text-sm shadow-lg shadow-emerald-500/20 transition-all flex items-center space-x-2"
+                    onClick={onViewProducts}
+                    className="px-5 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs sm:text-sm shadow-lg shadow-emerald-500/20 transition-all flex items-center space-x-2"
                   >
-                    <span>Comenzar Tu Plan</span>
+                    <span>Explorar Productos</span>
                     <ChevronRight className="w-4 h-4" />
                   </button>
                   <span className="text-xs font-bold text-slate-300 bg-slate-900/80 px-3 py-2 rounded-lg border border-slate-700/80 backdrop-blur-sm hidden sm:inline-block">

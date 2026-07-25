@@ -2,6 +2,10 @@ export type FitnessGoal = 'masa_muscular' | 'reducir_grasa' | 'aumentar_fuerza' 
 
 export type MealTiming = 'pre_entreno' | 'post_entreno' | 'desayuno' | 'almuerzo' | 'cena' | 'snack';
 
+export type ProductCategory = 'proteinas' | 'desayunos' | 'batidos' | 'snacks';
+
+export type MainNavTab = 'home' | 'meals' | 'benefits' | 'about' | 'contact' | 'guide' | 'calculator' | 'ai' | 'planner' | 'articles';
+
 export interface NutritionMacros {
   calories: number; // kcal
   protein: number; // grams
@@ -16,6 +20,8 @@ export interface MealItem {
   subtitle: string;
   description: string;
   image: string;
+  price: number; // USD / Local Currency
+  category: ProductCategory;
   goal: FitnessGoal[];
   timing: MealTiming[];
   macros: NutritionMacros;
@@ -27,6 +33,12 @@ export interface MealItem {
   instructions: string[];
   tags: string[];
   featured?: boolean;
+}
+
+export interface CartItem {
+  id: string;
+  meal: MealItem;
+  quantity: number;
 }
 
 export interface UserFitnessProfile {
@@ -66,3 +78,4 @@ export interface NutritionGuideArticle {
   content: string[];
   keyTakeaways: string[];
 }
+

@@ -14,6 +14,8 @@ export const INITIAL_MEALS: MealItem[] = [
     subtitle: 'Pechuga a la parrilla, arroz integral, brócoli, aguacate y batido proteico',
     description: 'Menú gourmet de alto rendimiento hipertrófico: Jugosa pechuga de pollo a la parrilla servida con arroz integral, brócoli al vapor, rebanadas de aguacate cremoso y un batido de proteína de suero al lado.',
     image: muscleGainPlateImg,
+    price: 11.99,
+    category: 'proteinas',
     goal: ['masa_muscular', 'aumentar_fuerza', 'recuperacion'],
     timing: ['almuerzo', 'post_entreno'],
     macros: {
@@ -57,6 +59,8 @@ export const INITIAL_MEALS: MealItem[] = [
     subtitle: 'Pechuga de pollo, quinoa, espárragos, ensalada fresca y agua mineral con limón',
     description: 'Menú balanceado de alta definición y quema de grasa: Pechuga de pollo a la plancha, quinoa ligera, espárragos salteados y ensalada fresca de tomate y lechuga, acompañado de agua mineral con limón.',
     image: definitionPlateImg,
+    price: 11.50,
+    category: 'proteinas',
     goal: ['reducir_grasa', 'recuperacion'],
     timing: ['almuerzo', 'cena', 'post_entreno'],
     macros: {
@@ -99,6 +103,8 @@ export const INITIAL_MEALS: MealItem[] = [
     subtitle: 'Rico en Omega-3 para acelerar la recuperación y reducir la inflamación',
     description: 'Lomo de salmón salvaje a la plancha con piel crujiente, acompañado de arroz salvaje al limón y espárragos verdes salteados. Nutrición premium para atletas.',
     image: salmonRiceImg,
+    price: 14.99,
+    category: 'proteinas',
     goal: ['masa_muscular', 'aumentar_fuerza', 'recuperacion', 'reducir_grasa'],
     timing: ['cena', 'almuerzo', 'post_entreno'],
     macros: {
@@ -139,6 +145,8 @@ export const INITIAL_MEALS: MealItem[] = [
     subtitle: 'Desayuno o pre-entreno energético cargado de fibra y glucógeno',
     description: 'Esponjosos pancakes elaborados con harina de avena entera, claras de huevo, proteína en polvo y banana. Coronados con crema de maní natural y frutos rojos ricos en antioxidantes.',
     image: proteinPancakesImg,
+    price: 8.50,
+    category: 'desayunos',
     goal: ['masa_muscular', 'aumentar_fuerza'],
     timing: ['desayuno', 'pre_entreno'],
     macros: {
@@ -180,6 +188,8 @@ export const INITIAL_MEALS: MealItem[] = [
     subtitle: 'Energía rápida de fácil digestión 30-45 minutos antes de entrenar',
     description: 'Yogurt griego natural bajo en grasa combinado con banana en rodajas, semillas de chía, nueces crujientes y un toque de miel pura. Diseñado para no recargar el estómago antes de hacer ejercicio.',
     image: preWorkoutBowlImg,
+    price: 5.99,
+    category: 'snacks',
     goal: ['aumentar_fuerza', 'recuperacion', 'reducir_grasa'],
     timing: ['pre_entreno', 'snack', 'desayuno'],
     macros: {
@@ -219,6 +229,8 @@ export const INITIAL_MEALS: MealItem[] = [
     subtitle: 'Opción ligera y saciante ideal para déficit calórico y quema de grasa',
     description: 'Tortilla de trigo integral o avena rellena de pechuga de pavo baja en sodio, queso cottage cremoso rico en caseína, hojas frescas de espinaca y tomate picado.',
     image: 'https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&q=80&w=800',
+    price: 7.50,
+    category: 'snacks',
     goal: ['reducir_grasa', 'recuperacion'],
     timing: ['almuerzo', 'snack', 'cena'],
     macros: {
@@ -258,6 +270,8 @@ export const INITIAL_MEALS: MealItem[] = [
     subtitle: 'Recarga inmediata post-entreno para maximizar la ventana anabólica',
     description: 'Batido cremoso de proteína aislado de suero de leche (Whey ISO), bebida de almendras sin azúcar, cacao puro antioxidante, avena rápida y crema de almendras.',
     image: 'https://images.unsplash.com/photo-1553530666-ba11a7da3888?auto=format&fit=crop&q=80&w=800',
+    price: 6.50,
+    category: 'batidos',
     goal: ['masa_muscular', 'aumentar_fuerza', 'recuperacion'],
     timing: ['post_entreno', 'snack'],
     macros: {
@@ -295,6 +309,8 @@ export const INITIAL_MEALS: MealItem[] = [
     subtitle: 'Alto aporte de creatina natural, hierro hemo y zinc para fuerza máxima',
     description: 'Corte magro de res (lomo o cuadril) sazonado con hierbas, acompañado de papitas criollas horneadas con romero y una ensalada fresca con aderezo de limón.',
     image: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=800',
+    price: 12.99,
+    category: 'proteinas',
     goal: ['aumentar_fuerza', 'masa_muscular'],
     timing: ['almuerzo', 'cena'],
     macros: {
@@ -334,6 +350,8 @@ export const INITIAL_MEALS: MealItem[] = [
     subtitle: 'Desayuno o cena ultra magra rica en proteína de valor biológico 100%',
     description: 'Omelette ligero preparado con 5 claras de huevo y 1 yema, salteado de champiñones portobello, espinacas y lonjas de pavo. Acompañado de tostada de masa madre.',
     image: 'https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&q=80&w=800',
+    price: 7.99,
+    category: 'desayunos',
     goal: ['reducir_grasa', 'recuperacion'],
     timing: ['desayuno', 'cena'],
     macros: {
