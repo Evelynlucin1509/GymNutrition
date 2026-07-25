@@ -59,10 +59,10 @@ export const ContactSection: React.FC = () => {
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-white">Teléfono & WhatsApp</h4>
-                    <p className="text-slate-400">+593 99 876 5432 / (02) 234-5678</p>
+                    <h4 className="font-bold text-white">Teléfono & WhatsApp (Guayas)</h4>
+                    <p className="text-slate-400">+593 4 228-5000 / 0968159518 (+593 96 815 9518)</p>
                     <a
-                      href="https://wa.me/593998765432"
+                      href="https://wa.me/593968159518"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-block text-emerald-400 font-bold hover:underline text-xs mt-1"
@@ -99,8 +99,8 @@ export const ContactSection: React.FC = () => {
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-white">Centro Principal de Distribución</h4>
-                    <p className="text-slate-400">Av. de la Salud & Calle de los Atletas #45, Edificio Fitness Hub</p>
+                    <h4 className="font-bold text-white">Centro Principal de Distribución (Guayas)</h4>
+                    <p className="text-slate-400">Av. Francisco de Orellana & Justino Cornejo, Edificio Fitness Hub, Guayaquil, Guayas, Ecuador</p>
                   </div>
                 </div>
 
@@ -125,7 +125,7 @@ export const ContactSection: React.FC = () => {
                     <Facebook className="w-5 h-5" />
                   </a>
                   <a
-                    href="https://wa.me/593998765432"
+                    href="https://wa.me/593968159518"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-10 h-10 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-emerald-400 hover:border-emerald-500 transition-all"
@@ -240,14 +240,14 @@ export const ContactSection: React.FC = () => {
               <div className="flex items-center justify-between text-xs px-2">
                 <span className="font-bold text-white flex items-center gap-1.5">
                   <MapPin className="w-4 h-4 text-emerald-400" />
-                  Nuestra Ubicación en el Mapa
+                  Nuestra Ubicación en Guayas (Mapa)
                 </span>
-                <span className="text-slate-400 text-[11px]">Centro Deportivo GymNutrition</span>
+                <span className="text-slate-400 text-[11px]">Guayaquil, Guayas, Ecuador</span>
               </div>
               <div className="w-full h-60 rounded-2xl overflow-hidden border border-slate-800">
                 <iframe
-                  title="GymNutrition Google Map Location"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509374!2d144.95373531531825!3d-37.81627977975171!2m3!1f0!0f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d4c2b349649%3A0xb6899234e561db11!2sGym%20%26%20Fitness!5e0!3m2!1ses!2s!4v1625000000000!5m2!1ses!2s"
+                  title="GymNutrition Google Map Location Guayas"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127581.08272551463!2d-79.96781295!3d-2.17088925!2m3!1f0!0f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x902d6d84f88e62d1%3A0xa64366e4a8a0f9b3!2sGuayaquil%2C%20Ecuador!5e0!3m2!1ses!2sec!4v1710000000000!5m2!1ses!2sec"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}

@@ -29,18 +29,10 @@ export const GoalFilter: React.FC<GoalFilterProps> = ({
   setSortBy,
   totalResults
 }) => {
-  const categoryTabs: { id: ProductCategory | 'all'; label: string }[] = [
-    { id: 'all', label: '🍽️ Todos los Productos' },
-    { id: 'proteinas', label: '🥩 Proteínas' },
-    { id: 'desayunos', label: '🍳 Desayunos' },
-    { id: 'batidos', label: '🥤 Batidos' },
-    { id: 'snacks', label: '🍌 Snacks' },
-  ];
-
   const goalTabs: { id: FitnessGoal | 'all'; label: string }[] = [
     { id: 'all', label: 'Todos los Objetivos' },
     { id: 'masa_muscular', label: '💪 Ganar Masa Muscular' },
-    { id: 'reducir_grasa', label: '🔥 Reducir Grasa' },
+    { id: 'reducir_grasa', label: '🔥 Definición Muscular' },
     { id: 'aumentar_fuerza', label: '⚡ Aumentar Fuerza' },
     { id: 'recuperacion', label: '🧘 Recuperación' },
   ];
@@ -105,33 +97,6 @@ export const GoalFilter: React.FC<GoalFilterProps> = ({
 
       </div>
 
-      {/* Category Tabs Row (New Request) */}
-      <div className="space-y-2">
-        <div className="flex items-center space-x-2 text-xs font-bold text-amber-400 uppercase tracking-wider">
-          <Tag className="w-3.5 h-3.5 text-amber-400" />
-          <span>Categorías de Productos:</span>
-        </div>
-
-        <div className="flex flex-wrap gap-2">
-          {categoryTabs.map((cat) => {
-            const isActive = selectedCategory === cat.id;
-            return (
-              <button
-                key={cat.id}
-                onClick={() => setSelectedCategory(cat.id)}
-                className={`px-4 py-2 rounded-xl text-xs font-black transition-all duration-200 ${
-                  isActive
-                    ? 'bg-amber-500 text-slate-950 shadow-md shadow-amber-500/20 ring-2 ring-amber-400/50'
-                    : 'bg-slate-950 text-slate-300 hover:bg-slate-800 border border-slate-800'
-                }`}
-              >
-                {cat.label}
-              </button>
-            );
-          })}
-        </div>
-      </div>
-
       {/* Goal Filters Row */}
       <div className="pt-2 space-y-2 border-t border-slate-800/80">
         <div className="flex items-center space-x-2 text-xs font-bold text-slate-400 uppercase tracking-wider">
@@ -158,6 +123,74 @@ export const GoalFilter: React.FC<GoalFilterProps> = ({
           })}
         </div>
       </div>
+
+      {/* Timing Filters Row */}
+      <div className="pt-2 space-y-2 border-t border-slate-800/80">
+        <div className="flex items-center space-x-2 text-xs font-bold text-teal-400 uppercase tracking-wider">
+          <Clock className="w-3.5 h-3.5 text-teal-400" />
+          <span>Momento de Consumo / Entrenamiento:</span>
+        </div>
+
+        <div className="flex flex-wrap gap-2">
+          {timingTabs.map((tab) => {
+            const isActive = selectedTiming === tab.id;
+            return (
+              <button
+                key={tab.id}
+                onClick={() => setSelectedTiming(tab.id)}
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all duration-200 ${
+                  isActive
+                    ? 'bg-teal-500 text-slate-950 shadow-md shadow-teal-500/20'
+                    : 'bg-slate-950 text-slate-300 hover:bg-slate-800 border border-slate-800'
+                }`}
+              >
+                {tab.label}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Active Filters Bar / Reset Button if active */}
+      {(selectedGoal !== 'all' || selectedCategory !== 'all' || selectedTiming !== 'all' || searchQuery.trim() !== '') && (
+        <div className="pt-3 border-t border-slate-800 flex items-center justify-between text-xs">
+          <div className="flex items-center space-x-2 text-slate-400">
+            <span className="font-semibold text-slate-300">Filtros activos:</span>
+            {selectedCategory !== 'all' && (
+              <span className="bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded-md font-bold border border-amber-500/30">
+                Cat: {selectedCategory}
+              </span>
+            )}
+            {selectedGoal !== 'all' && (
+              <span className="bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded-md font-bold border border-emerald-500/30">
+                Obj: {selectedGoal === 'reducir_grasa' ? 'definición muscular' : selectedGoal.replace('_', ' ')}
+              </span>
+            )}
+            {selectedTiming !== 'all' && (
+              <span className="bg-teal-500/20 text-teal-300 px-2 py-0.5 rounded-md font-bold border border-teal-500/30">
+                Momento: {selectedTiming.replace('_', ' ')}
+              </span>
+            )}
+            {searchQuery && (
+              <span className="bg-slate-800 text-slate-200 px-2 py-0.5 rounded-md font-bold border border-slate-700">
+                "{searchQuery}"
+              </span>
+            )}
+          </div>
+
+          <button
+            onClick={() => {
+              setSelectedGoal('all');
+              setSelectedCategory('all');
+              setSelectedTiming('all');
+              setSearchQuery('');
+            }}
+            className="text-xs font-bold text-emerald-400 hover:text-emerald-300 hover:underline flex items-center space-x-1"
+          >
+            <span>Restablecer Filtros</span>
+          </button>
+        </div>
+      )}
 
     </div>
   );

@@ -100,7 +100,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                     <input
                       type="tel"
                       required
-                      placeholder="+593 99 123 4567"
+                      placeholder="0968159518"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500"
@@ -261,12 +261,25 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
               </div>
             </div>
 
-            <button
-              onClick={handleFinish}
-              className="px-8 py-3.5 rounded-xl bg-emerald-500 text-slate-950 font-black text-xs hover:bg-emerald-400 transition-colors shadow-lg"
-            >
-              Volver a la Tienda
-            </button>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+              <a
+                href={`https://wa.me/593968159518?text=${encodeURIComponent(
+                  `Hola GymNutrition Guayas! Acabo de hacer un pedido a nombre de ${formData.name}. Dirección: ${formData.address}. Total: $${total.toFixed(2)}.`
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-emerald-500 text-slate-950 font-black text-xs hover:bg-emerald-400 transition-colors shadow-lg flex items-center justify-center space-x-2"
+              >
+                <span>Enviar comprobante por WhatsApp (0968159518)</span>
+              </a>
+
+              <button
+                onClick={handleFinish}
+                className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-slate-800 text-slate-300 font-bold text-xs hover:bg-slate-700 transition-colors border border-slate-700"
+              >
+                Volver a la Tienda
+              </button>
+            </div>
           </div>
         )}
 

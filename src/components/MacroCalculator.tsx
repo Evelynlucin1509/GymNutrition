@@ -202,7 +202,7 @@ export const MacroCalculator: React.FC<MacroCalculatorProps> = ({
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
               {[
                 { id: 'masa_muscular', label: '💪 Ganar Masa Muscular', sub: 'Hipertrofia (+12% kcal)' },
-                { id: 'reducir_grasa', label: '🔥 Reducir Grasa Corporal', sub: 'Definición (-20% kcal)' },
+                { id: 'reducir_grasa', label: '🔥 Definición Muscular', sub: 'Definición (-20% kcal)' },
                 { id: 'aumentar_fuerza', label: '⚡ Aumentar Fuerza', sub: 'Potencia & Rendimiento' },
                 { id: 'recuperacion', label: '🧘 Mantenimiento / Salud', sub: 'Equilibrio Energético' },
               ].map((item) => (

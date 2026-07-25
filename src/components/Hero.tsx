@@ -2,8 +2,6 @@ import React from 'react';
 import { Dumbbell, Target, Flame, Sparkles, ChevronRight, Zap, ShoppingBag, Utensils } from 'lucide-react';
 import { FitnessGoal } from '../types';
 
-import gymLogo from '../assets/images/gymnutrition_logo_1784952810347.jpg';
-import gymHeroCover from '../assets/images/gym_hero_cover_1784952937983.jpg';
 import gymnutritionWebBanner from '../assets/images/gymnutrition_web_banner_1784953112353.jpg';
 
 interface HeroProps {
@@ -31,7 +29,7 @@ export const Hero: React.FC<HeroProps> = ({
     },
     {
       id: 'reducir_grasa',
-      title: 'Reducir Grasa Corporal',
+      title: 'Definición Muscular',
       subtitle: 'Definición & Déficit Saciante',
       icon: <Flame className="w-5 h-5 text-amber-400" />,
       color: 'from-amber-500/20 to-orange-500/10 border-amber-500/40'
@@ -58,11 +56,61 @@ export const Hero: React.FC<HeroProps> = ({
       <div className="absolute -top-32 -left-32 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute top-1/2 right-0 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-12">
+        
+        {/* Top Panoramic Web Banner Section - PLATAFORMA OFICIAL GYMNUTRITION */}
+        <div className="relative rounded-3xl overflow-hidden border border-slate-800 shadow-2xl group">
+          <div className="aspect-[16/9] md:aspect-[21/9] w-full relative overflow-hidden bg-slate-900">
+            <img
+              src={gymnutritionWebBanner}
+              alt="Banner Panorámico GymNutrition 4K - Atleta con plato saludable"
+              referrerPolicy="no-referrer"
+              className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/70 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent" />
+
+            {/* Banner Text Overlay */}
+            <div className="absolute inset-0 p-6 sm:p-10 flex flex-col justify-between max-w-2xl text-white">
+              <div className="space-y-3">
+                <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-emerald-500/20 border border-emerald-400/50 text-emerald-300 text-xs font-black uppercase tracking-wider backdrop-blur-md shadow-lg">
+                  <Sparkles className="w-4 h-4 text-emerald-400" />
+                  <span>PLATAFORMA OFICIAL GYMNUTRITION</span>
+                </div>
+                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white drop-shadow-md">
+                  Gym<span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-amber-400">Nutrition</span>
+                </h1>
+                <p className="text-xs sm:text-base text-slate-200 font-medium leading-relaxed max-w-xl drop-shadow">
+                  Plataforma oficial de nutrición deportiva en Guayas, Ecuador. Menús fitness gourmet preparados para hipertrofia, definición y máximo rendimiento muscular.
+                </p>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-3 pt-4">
+                <button
+                  onClick={onViewProducts}
+                  className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-400 hover:from-emerald-400 hover:to-teal-300 text-slate-950 font-black text-xs sm:text-sm shadow-xl shadow-emerald-500/20 transition-all flex items-center space-x-2"
+                >
+                  <Utensils className="w-4 h-4 text-slate-950" />
+                  <span>Explorar Productos</span>
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+                <button
+                  onClick={onOpenCalculator}
+                  className="px-5 py-3.5 rounded-xl bg-slate-900/80 hover:bg-slate-800 text-slate-200 font-bold text-xs sm:text-sm border border-slate-700/80 backdrop-blur-sm transition-all flex items-center space-x-2"
+                >
+                  <Dumbbell className="w-4 h-4 text-emerald-400" />
+                  <span>Calculadora de Macros</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Hero Content Section */}
+        <div className="max-w-4xl mx-auto space-y-6">
           
           {/* Main Hero Copy */}
-          <div className="lg:col-span-7 space-y-6">
+          <div className="space-y-6">
             
             {/* Pill Tag */}
             <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-bold tracking-wide">
@@ -70,31 +118,31 @@ export const Hero: React.FC<HeroProps> = ({
               <span>Nutrición Deportiva & Gym Gourmet</span>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight">
+            <h2 className="text-2xl sm:text-4xl font-black tracking-tight text-white leading-tight">
               Alimenta tu cuerpo,{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-amber-400">
                 alcanza tus metas.
               </span>
-            </h1>
+            </h2>
 
-            <p className="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl font-normal">
-              GymNutrition te ayuda a elegir y comprar el menú saludable perfecto según tu objetivo físico: ganar masa muscular, reducir grasa corporal, aumentar fuerza o acelerar tu recuperación muscular. Platillos fitness gourmet listos para consumir.
+            <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl font-normal">
+              GymNutrition te ayuda a elegir y comprar el menú saludable perfecto según tu objetivo físico: ganar masa muscular, definición muscular, aumentar fuerza o acelerar tu recuperación muscular. Platillos fitness gourmet listos para consumir.
             </p>
 
             {/* Quick Action Buttons */}
             <div className="flex flex-wrap gap-3 pt-2">
               <button
                 onClick={onViewProducts}
-                className="flex items-center space-x-2 px-6 py-4 rounded-2xl bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-400 hover:from-emerald-400 hover:to-teal-300 text-slate-950 font-black text-sm shadow-xl shadow-emerald-500/20 hover:shadow-emerald-500/30 transform hover:-translate-y-0.5 transition-all"
+                className="flex items-center space-x-2 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-400 hover:from-emerald-400 hover:to-teal-300 text-slate-950 font-black text-xs sm:text-sm shadow-xl shadow-emerald-500/20 hover:shadow-emerald-500/30 transform hover:-translate-y-0.5 transition-all"
               >
-                <Utensils className="w-5 h-5 text-slate-950" />
+                <Utensils className="w-4 h-4 text-slate-950" />
                 <span>Ver Productos</span>
                 <ChevronRight className="w-4 h-4" />
               </button>
 
               <button
                 onClick={onOpenCalculator}
-                className="flex items-center space-x-2 px-5 py-4 rounded-2xl bg-slate-800 hover:bg-slate-700 text-slate-100 font-bold text-sm border border-slate-700 transition-all"
+                className="flex items-center space-x-2 px-5 py-3.5 rounded-2xl bg-slate-800 hover:bg-slate-700 text-slate-100 font-bold text-xs sm:text-sm border border-slate-700 transition-all"
               >
                 <Dumbbell className="w-4 h-4 text-emerald-400" />
                 <span>Calculadora de Macros</span>
@@ -102,7 +150,7 @@ export const Hero: React.FC<HeroProps> = ({
 
               <button
                 onClick={onOpenAI}
-                className="flex items-center space-x-2 px-5 py-4 rounded-2xl bg-slate-900 hover:bg-slate-800 text-emerald-300 font-bold text-sm border border-emerald-500/30 transition-all"
+                className="flex items-center space-x-2 px-5 py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-emerald-300 font-bold text-xs sm:text-sm border border-emerald-500/30 transition-all"
               >
                 <Sparkles className="w-4 h-4 text-amber-400" />
                 <span>Asistente NutriAI</span>
@@ -110,7 +158,7 @@ export const Hero: React.FC<HeroProps> = ({
             </div>
 
             {/* Goal Selector Matrix */}
-            <div className="pt-6">
+            <div className="pt-4">
               <p className="text-xs font-extrabold text-slate-400 uppercase tracking-wider mb-3">
                 Selecciona tu objetivo deportivo para ver productos recomendados:
               </p>
@@ -155,117 +203,6 @@ export const Hero: React.FC<HeroProps> = ({
 
           </div>
 
-          {/* Hero Visual Showcase */}
-          <div className="lg:col-span-5 relative">
-            <div className="relative mx-auto max-w-md lg:max-w-none">
-              
-              {/* Card Container */}
-              <div className="relative rounded-3xl overflow-hidden bg-slate-900 border border-slate-800 p-3 shadow-2xl group">
-                <div className="relative h-72 sm:h-88 rounded-2xl overflow-hidden">
-                  <img
-                    src={gymHeroCover}
-                    alt="Gimnasio moderno con personas disfrutando comidas saludables GymNutrition"
-                    referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
-
-                  {/* Top Badge */}
-                  <div className="absolute top-3 left-3 bg-slate-950/85 backdrop-blur-md border border-slate-700/80 px-3 py-1.5 rounded-full text-xs font-bold text-emerald-400 flex items-center space-x-1.5 shadow-lg">
-                    <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
-                    <span>Fotografía Gastronómica 4K</span>
-                  </div>
-
-                  {/* Bottom Bar Info */}
-                  <div className="absolute bottom-3 left-3 right-3 bg-slate-900/90 backdrop-blur-md border border-slate-800 rounded-xl p-3 text-white">
-                    <div className="flex items-center justify-between mb-1.5">
-                      <span className="text-xs font-bold text-slate-100 flex items-center gap-1.5">
-                        <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
-                        Pollo, Arroz Integral, Brócoli, Aguacate, Avena & Batido
-                      </span>
-                    </div>
-                    <p className="text-[11px] text-slate-300 leading-tight">
-                      Nutrición lista para consumir pensada para el rendimiento deportivo.
-                    </p>
-
-                    <div className="grid grid-cols-3 gap-2 text-center text-xs pt-2 mt-2 border-t border-slate-800">
-                      <div className="bg-slate-950/70 p-1.5 rounded-lg border border-slate-800">
-                        <span className="block text-[9px] text-slate-400 uppercase font-semibold">Proteína</span>
-                        <span className="font-bold text-emerald-400">65g</span>
-                      </div>
-                      <div className="bg-slate-950/70 p-1.5 rounded-lg border border-slate-800">
-                        <span className="block text-[9px] text-slate-400 uppercase font-semibold">Carbs</span>
-                        <span className="font-bold text-teal-300">70g</span>
-                      </div>
-                      <div className="bg-slate-950/70 p-1.5 rounded-lg border border-slate-800">
-                        <span className="block text-[9px] text-slate-400 uppercase font-semibold">Grasas</span>
-                        <span className="font-bold text-amber-300">18g</span>
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-
-              {/* Decorative Floating Pill */}
-              <div className="absolute -bottom-5 -left-5 bg-slate-900 border border-slate-700/80 rounded-2xl p-3 shadow-xl flex items-center space-x-3 text-xs hidden sm:flex">
-                <div className="w-10 h-10 rounded-xl overflow-hidden bg-slate-950 border border-slate-800 p-0.5 flex-shrink-0">
-                  <img src={gymLogo} alt="Logo" className="w-full h-full object-cover rounded-lg" referrerPolicy="no-referrer" />
-                </div>
-                <div>
-                  <p className="font-bold text-white">GymNutrition</p>
-                  <p className="text-slate-400 text-[11px]">Nutrición Deportiva Certificada</p>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-        </div>
-
-        {/* Panoramic Web Banner Section */}
-        <div className="mt-12 pt-8 border-t border-slate-800/80">
-          <div className="relative rounded-3xl overflow-hidden border border-slate-800 shadow-2xl group">
-            <div className="aspect-[16/9] md:aspect-[21/9] w-full relative overflow-hidden bg-slate-900">
-              <img
-                src={gymnutritionWebBanner}
-                alt="Banner Panorámico GymNutrition 4K - Atleta con plato saludable"
-                referrerPolicy="no-referrer"
-                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/60 to-transparent" />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent" />
-
-              {/* Banner Text Overlay */}
-              <div className="absolute inset-0 p-6 sm:p-10 flex flex-col justify-between max-w-2xl text-white">
-                <div className="space-y-2">
-                  <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 text-xs font-bold uppercase tracking-wider backdrop-blur-md">
-                    <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
-                    <span>Plataforma Oficial GymNutrition</span>
-                  </div>
-                  <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-white drop-shadow-md">
-                    Gym<span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-amber-400">Nutrition</span>
-                  </h2>
-                  <p className="text-xs sm:text-sm text-slate-200 font-medium leading-relaxed max-w-lg hidden sm:block drop-shadow">
-                    Potencia tu rendimiento físico con planes de alimentación deportiva hiperrealistas, recetas adaptadas a tus macros y nutrición con evidencia para gimnasio.
-                  </p>
-                </div>
-
-                <div className="flex items-center space-x-4 pt-2">
-                  <button
-                    onClick={onViewProducts}
-                    className="px-5 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs sm:text-sm shadow-lg shadow-emerald-500/20 transition-all flex items-center space-x-2"
-                  >
-                    <span>Explorar Productos</span>
-                    <ChevronRight className="w-4 h-4" />
-                  </button>
-                  <span className="text-xs font-bold text-slate-300 bg-slate-900/80 px-3 py-2 rounded-lg border border-slate-700/80 backdrop-blur-sm hidden sm:inline-block">
-                    Calidad 4K & Nutrición Gourmet
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
 
       </div>

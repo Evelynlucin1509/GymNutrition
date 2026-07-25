@@ -17,7 +17,7 @@ import { Footer } from './components/Footer';
 
 import { INITIAL_MEALS } from './data/meals';
 import { MealItem, FitnessGoal, MealTiming, ProductCategory, MainNavTab, CartItem, PlannedMealEntry, UserFitnessProfile, CalculatedMacros } from './types';
-import { Dumbbell, Sparkles, Check, ShoppingCart, ShoppingBag } from 'lucide-react';
+import { Dumbbell, Sparkles, Check, ShoppingCart, ShoppingBag, MessageCircle } from 'lucide-react';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<MainNavTab>('home');
@@ -182,6 +182,14 @@ export default function App() {
     });
   }, [selectedGoal, selectedCategory, selectedTiming, searchQuery, sortBy]);
 
+  const homeFeaturedMeals = useMemo(() => {
+    if (selectedGoal !== 'all') {
+      const goalMatched = INITIAL_MEALS.filter((meal) => meal.goal.includes(selectedGoal));
+      if (goalMatched.length > 0) return goalMatched.slice(0, 4);
+    }
+    return INITIAL_MEALS.slice(0, 4);
+  }, [selectedGoal]);
+
   const totalCartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
   return (
@@ -237,7 +245,7 @@ export default function App() {
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                {INITIAL_MEALS.slice(0, 4).map((meal) => {
+                {homeFeaturedMeals.map((meal) => {
                   const isPlanned = plannedEntries.some((e) => e.meal.id === meal.id);
                   return (
                     <MealCard
@@ -405,6 +413,18 @@ export default function App() {
         onAddToPlanner={(m, timing) => handleAddToPlanner(m, timing)}
         isPlanned={plannedEntries.some((e) => e.meal.id === activeMealModal?.id)}
       />
+
+      {/* Floating WhatsApp Button */}
+      <a
+        href="https://wa.me/593968159518?text=Hola%20GymNutrition!%20Deseo%20informaci%C3%B3n%20sobre%20los%20men%C3%BAs%20fitness."
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 left-6 z-40 bg-emerald-500 hover:bg-emerald-400 text-slate-950 px-4 py-3 rounded-full font-black text-xs shadow-2xl flex items-center space-x-2 border-2 border-emerald-300 hover:scale-105 transition-all group"
+        title="Contactar por WhatsApp (0968159518)"
+      >
+        <MessageCircle className="w-5 h-5 fill-slate-950" />
+        <span className="hidden sm:inline">WhatsApp 0968159518</span>
+      </a>
 
       {/* Footer */}
       <Footer setActiveTab={setActiveTab} />
