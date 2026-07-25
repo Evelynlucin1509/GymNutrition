@@ -1,0 +1,6 @@
+{
+  "name": "GymNutrition",
+  "description": "Plataforma de alimentación saludable y nutrición deportiva para hipertrofia, pérdida de grasa, fuerza y recuperación.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
